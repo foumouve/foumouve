@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from "react";
-import { StyleSheet, Text, View, Button, Image, TextInput, Picker } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TextInput, Picker, Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -52,7 +52,7 @@ function ExerciceScreen({ navigation }) {
 
 function RunScreen({ navigation }) {
   const [value, onChangeText] = React.useState('');
-  const [selectedValue, setSelectedValue] = useState("10");
+  const [selectedValue, setSelectedValue] = useState("05");
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>La course à pied est un exercice qui se déroule sur le temps avec un chrono.</Text>
@@ -62,43 +62,36 @@ function RunScreen({ navigation }) {
         style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
-          <Picker.Item label='05' value='05 min'/>
-          <Picker.Item label='10' value='10 min'/>
-          <Picker.Item label='15' value='15 min'/>
-          <Picker.Item label='20' value='20 min'/>
-          <Picker.Item label='25' value='25 min'/>
-          <Picker.Item label='30' value='30 min'/>
-          <Picker.Item label='35' value='35 min'/>
-          <Picker.Item label='40' value='40 min'/>
-          <Picker.Item label='45' value='45 min'/>
-          <Picker.Item label='50' value='50 min'/>
-          <Picker.Item label='55' value='55 min'/>
-          <Picker.Item label='60' value='60 min'/>
+          <Picker.Item label='05' value='300000'/>
+          <Picker.Item label='10' value='600000'/>
+          <Picker.Item label='15' value='900000'/>
+          <Picker.Item label='20' value='1200000'/>
+          <Picker.Item label='25' value='1500000'/>
+          <Picker.Item label='30' value='1800000'/>
+          <Picker.Item label='35' value='2100000'/>
+          <Picker.Item label='40' value='2400000'/>
+          <Picker.Item label='45' value='2700000'/>
+          <Picker.Item label='50' value='3000000'/>
+          <Picker.Item label='55' value='3300000'/>
+          <Picker.Item label='60' value='3600000'/>
       </Picker>
 
-      <Button title="Commencer" onPress={() => navigation.navigate('Timer')} />
+      <Button title="Commencer" onPress={() => navigation.navigate('RunTimer')} />
 
-      <Text style={{marginTop:15}}>Combien de distance voulez-nous parcourir ?</Text>
+      {/* <Text style={{marginTop:15}}>Combien de distance voulez-nous parcourir ?</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1, paddingVertical:3, paddingHorizontal:25, margin:15 }}
         onChangeText={text => onChangeText(text)}
         value={value}
-      />
+      /> */}
       <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
       <Button title="Retour" onPress={() => navigation.goBack()} />
     </View>
   );
 }
 
-function TimerScreen({ navigation }) {
-  <View>
-    <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
-    <Button title="Retour" onPress={() => navigation.goBack()} />
-  </View>
-}
-
 function CyclingScreen({ navigation }) {
-  const [selectedValue, setSelectedValue] = useState("10");
+  const [selectedValue, setSelectedValue] = useState("05");
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Le vélo est un exercice qui se déroule avec un chrono.</Text>
@@ -108,20 +101,22 @@ function CyclingScreen({ navigation }) {
         style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
-          <Picker.Item label='05' value='05 min'/>
-          <Picker.Item label='10' value='10 min'/>
-          <Picker.Item label='15' value='15 min'/>
-          <Picker.Item label='20' value='20 min'/>
-          <Picker.Item label='25' value='25 min'/>
-          <Picker.Item label='30' value='30 min'/>
-          <Picker.Item label='35' value='35 min'/>
-          <Picker.Item label='40' value='40 min'/>
-          <Picker.Item label='45' value='45 min'/>
-          <Picker.Item label='50' value='50 min'/>
-          <Picker.Item label='55' value='55 min'/>
-          <Picker.Item label='60' value='60 min'/>
+          <Picker.Item label='01' value='60000'/>
+          <Picker.Item label='02' value='120000'/>
+          <Picker.Item label='05' value='300000'/>
+          <Picker.Item label='10' value='600000'/>
+          <Picker.Item label='15' value='900000'/>
+          <Picker.Item label='20' value='1200000'/>
+          <Picker.Item label='25' value='1500000'/>
+          <Picker.Item label='30' value='1800000'/>
+          <Picker.Item label='35' value='2100000'/>
+          <Picker.Item label='40' value='2400000'/>
+          <Picker.Item label='45' value='2700000'/>
+          <Picker.Item label='50' value='3000000'/>
+          <Picker.Item label='55' value='3300000'/>
+          <Picker.Item label='60' value='3600000'/>
       </Picker>
-      <Button title="Commencer" onPress={() => navigation.navigate('Timer')} />
+      <Button title="Commencer" onPress={() => navigation.navigate('CyclingTimer')} />
       <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
       <Button title="Retour" onPress={() => navigation.goBack()} />
     </View>
@@ -129,7 +124,7 @@ function CyclingScreen({ navigation }) {
 }
 
 function GainageScreen({ navigation }) {
-  const [selectedValue, setSelectedValue] = useState("10");
+  const [selectedValue, setSelectedValue] = useState("1");
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Les exercics de gainages se passent en période, dans chaque période vous aurez 4 exercices différents.</Text>
@@ -144,7 +139,6 @@ function GainageScreen({ navigation }) {
           <Picker.Item label='3' value='3'/>
           <Picker.Item label='4' value='4'/>
           <Picker.Item label='5' value='5'/>
-          
       </Picker>
 
       <Text style={{marginTop:15}}>Combien de temps par exercices ? (en secondes) </Text>
@@ -153,14 +147,13 @@ function GainageScreen({ navigation }) {
         style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
-          <Picker.Item label='30' value='30'/>
-          <Picker.Item label='35' value='35'/>
-          <Picker.Item label='40' value='40'/>
-          <Picker.Item label='45' value='45'/>
-          <Picker.Item label='50' value='50'/>
-          <Picker.Item label='55' value='55'/>
-          <Picker.Item label='60' value='60'/>
-          
+          <Picker.Item label='30' value='30000'/>
+          <Picker.Item label='35' value='35000'/>
+          <Picker.Item label='40' value='40000'/>
+          <Picker.Item label='45' value='45000'/>
+          <Picker.Item label='50' value='50000'/>
+          <Picker.Item label='55' value='55000'/>
+          <Picker.Item label='60' value='60000'/>
       </Picker>
 
       <Text style={{marginTop:15}}>Combien de temps de pause ? (en secondes) </Text>
@@ -169,14 +162,53 @@ function GainageScreen({ navigation }) {
         style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
-          <Picker.Item label='10' value='10'/>
-          <Picker.Item label='15' value='15'/>
-          <Picker.Item label='20' value='20'/>
-          <Picker.Item label='25' value='25'/>
-          <Picker.Item label='30' value='30'/>
+          <Picker.Item label='10' value='10000'/>
+          <Picker.Item label='15' value='15000'/>
+          <Picker.Item label='20' value='20000'/>
+          <Picker.Item label='25' value='25000'/>
+          <Picker.Item label='30' value='30000'/>
           
       </Picker>
-      <Button title="Commencer" onPress={() => navigation.navigate('Timer')} />
+      <Button title="Commencer" onPress={() => navigation.navigate('GainageTimer')} />
+      <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
+      <Button title="Retour" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
+
+function RunTimerScreen({ navigation }) {
+  setTimeout(() => {
+    Alert.alert('Fin exercice');
+  }, 10000);
+  return(
+    <View style={{ flex: 1, alignItems: 'center' }}>
+      <Text style={{marginTop:15, marginBottom:15}}>L'exercice s'arrete dans : </Text>
+      <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
+      <Button title="Retour" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
+
+function CyclingTimerScreen({ navigation }) {
+  setTimeout(() => {
+    Alert.alert('Fin exercice');
+  }, 10000);
+  return(
+    <View style={{ flex: 1, alignItems: 'center' }}>
+      <Text style={{marginTop:15, marginBottom:15}}>L'exercice s'arrete dans : </Text>
+      <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
+      <Button title="Retour" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
+
+function GainageTimerScreen({ navigation }) {
+  setTimeout(() => {
+    Alert.alert('Fin exercice');
+  }, 10000);
+  return(
+    <View style={{ flex: 1, alignItems: 'center' }}>
+      <Text style={{marginTop:15, marginBottom:15}}>L'exercice s'arrete dans : </Text>
       <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
       <Button title="Retour" onPress={() => navigation.goBack()} />
     </View>
@@ -193,7 +225,9 @@ function App() {
         <Stack.Screen name="Run" component={RunScreen} />
         <Stack.Screen name="Cycling" component={CyclingScreen} />
         <Stack.Screen name="Gainage" component={GainageScreen} />
-        <Stack.Screen name="Timer" component={TimerScreen} />
+        <Stack.Screen name="RunTimer" component={RunTimerScreen} />
+        <Stack.Screen name="CyclingTimer" component={CyclingTimerScreen} />
+        <Stack.Screen name="GainageTimer" component={GainageTimerScreen} />
       </Stack.Navigator>
   );
 }
