@@ -1,32 +1,26 @@
-import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Platform, StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function HomeScreen() {
   const [value, onChangeText] = React.useState('');
-  return (
-    <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Text style={styles.baseText}>
-            Voici la page d'accueil
-          </Text>
+    return (
+      <View style={styles.container}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={{flexDirection:"row", alignItems:"center"}}>
+            <TextInput
+              style={{borderColor: 'gray', borderWidth: 1, paddingVertical:5, paddingHorizontal:125, margin:15 }}
+              onChangeText={text => onChangeText(text)}
+              value={value}
+            />
+            <Button title="Envoyer" color="#27B8AF" />
+          </View>
+        </ScrollView>
+  
+        <View style={styles.tabBarInfoContainer}>
         </View>
-
-        <View>
-          <TextInput
-            style={{borderColor: 'gray', borderWidth: 1, paddingVertical:3, paddingHorizontal:5, margin:15 }}
-            onChangeText={text => onChangeText(text)}
-            value={value}
-          />
-        </View>
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
       </View>
-    </View>
-  );
+    );
 }
 
 HomeScreen.navigationOptions = {
@@ -34,6 +28,12 @@ HomeScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
+  // button:{
+  //   backgroundColor: "#27B8AF",
+  //   paddingVertical: 12,
+  //   paddingHorizontal: 25
+  // },
+  
   baseText: {
     fontWeight: 'bold'
   },

@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useState } from "react";
-import { StyleSheet, Text, View, Button, Image, TextInput, Picker, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, Picker, Alert } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 
 function ExerciceScreen({ navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <View style={{alignItems:"center"}}></View>
       <Button
         title="Course à pied"
         style={{marginBottom : 10}}
@@ -17,8 +18,8 @@ function ExerciceScreen({ navigation }) {
       />
 
       <Image
-        style={{marginBottom:15}}
-        source={require('../assets/images/cours_a_pied.png')}
+        style={styles.image}
+        source={require('../assets/images/course-a-pied.jpg')}
       />
 
       <Button
@@ -30,8 +31,8 @@ function ExerciceScreen({ navigation }) {
       />
 
       <Image
-        style={{marginBottom:15}}
-        source={require('../assets/images/vélo.png')}
+        style={styles.image}
+        source={require('../assets/images/cycliste-1.jpg')}
       />
 
       <Button
@@ -41,11 +42,12 @@ function ExerciceScreen({ navigation }) {
           navigation.navigate('Gainage')
         }
       />
-
+      
       <Image
-        style={{marginBottom:15}}
-        source={require('../assets/images/gainage.png')}
-      />
+          style={styles.image}
+          source={require('../assets/images/gainage.jpg')}
+        />
+      
     </ScrollView>
   );
 } 
@@ -54,12 +56,12 @@ function RunScreen({ navigation }) {
   const [value, onChangeText] = React.useState('');
   const [selectedValue, setSelectedValue] = useState("05");
   return (
-    <View style={{ flex: 1, alignItems: 'center' }}>
+    <View style={{ flex: 0.43, alignItems: 'center', justifyContent:"space-between"}}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>La course à pied est un exercice qui se déroule sur le temps avec un chrono.</Text>
-      <Text style={{marginTop:15}}>Combien de temps voulez vous courir ?</Text>
+      <Text>Combien de temps voulez vous courir ?</Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
+        style={{ height: 50, width: 82, borderColor: 'black', borderWidth: 3}}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
           <Picker.Item label='05' value='300000'/>
@@ -93,7 +95,7 @@ function RunScreen({ navigation }) {
 function CyclingScreen({ navigation }) {
   const [selectedValue, setSelectedValue] = useState("05");
   return (
-    <View style={{ flex: 1, alignItems: 'center' }}>
+    <View style={{ flex: 0.43, alignItems: 'center', justifyContent:"space-between" }}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Le vélo est un exercice qui se déroule avec un chrono.</Text>
       <Text style={{marginTop:15}}>Combien de temps voulez vous faire du vélo ? (en minutes)</Text>
       <Picker
@@ -126,7 +128,7 @@ function CyclingScreen({ navigation }) {
 function GainageScreen({ navigation }) {
   const [selectedValue, setSelectedValue] = useState("1");
   return (
-    <View style={{ flex: 1, alignItems: 'center' }}>
+    <View style={{ flex: 0.73, alignItems: 'center', justifyContent:"space-between" }}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Les exercics de gainages se passent en période, dans chaque période vous aurez 4 exercices différents.</Text>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center"}}>Combien de session voulez-vous faire ?</Text>
       <Picker
@@ -141,7 +143,7 @@ function GainageScreen({ navigation }) {
           <Picker.Item label='5' value='5'/>
       </Picker>
 
-      <Text style={{marginTop:15}}>Combien de temps par exercices ? (en secondes) </Text>
+      <Text>Combien de temps par exercices ? (en secondes) </Text>
       <Picker
         selectedValue={selectedValue}
         style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
@@ -156,7 +158,7 @@ function GainageScreen({ navigation }) {
           <Picker.Item label='60' value='60000'/>
       </Picker>
 
-      <Text style={{marginTop:15}}>Combien de temps de pause ? (en secondes) </Text>
+      <Text>Combien de temps de pause ? (en secondes) </Text>
       <Picker
         selectedValue={selectedValue}
         style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
@@ -235,6 +237,11 @@ export default App;
 
 
 const styles = StyleSheet.create({
+  image:{
+    marginBottom:15, 
+    height:200, 
+    width:-100
+  },
   container: {
     flex: 1,
     backgroundColor: '#fafafa',
