@@ -183,8 +183,8 @@ function RunTimerScreen({ navigation }) {
   return(
     <View style={{ flex: 1, alignItems: 'center' }}>
       <Text style={{marginTop:15, marginBottom:15}}>L'exercice s'arrete dans : </Text>
-      <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
-      <Button title="Retour" onPress={() => navigation.goBack()} />
+      <Button title="Retour aux exercices" color="#27B8AF" onPress={() => navigation.navigate('Exercice')} />
+      <Button title="Retour" color="#27B8AF" onPress={() => navigation.goBack()} />
     </View>
   );
 }
@@ -196,8 +196,8 @@ function CyclingTimerScreen({ navigation }) {
   return(
     <View style={{ flex: 1, alignItems: 'center' }}>
       <Text style={{marginTop:15, marginBottom:15}}>L'exercice s'arrete dans : </Text>
-      <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
-      <Button title="Retour" onPress={() => navigation.goBack()} />
+      <Button title="Retour aux exercices" color="#27B8AF" onPress={() => navigation.navigate('Exercice')} />
+      <Button title="Retour" color="#27B8AF" onPress={() => navigation.goBack()} />
     </View>
   );
 }
@@ -209,12 +209,11 @@ function GainageTimerScreen({ navigation }) {
   return(
     <View style={{ flex: 1, alignItems: 'center' }}>
       <Text style={{marginTop:15, marginBottom:15}}>L'exercice s'arrete dans : </Text>
-      <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
-      <Button title="Retour" onPress={() => navigation.goBack()} />
+      <Button title="Retour aux exercices" color="#27B8AF" onPress={() => navigation.navigate('Exercice')} />
+      <Button title="Retour" color="#27B8AF" onPress={() => navigation.goBack()} />
     </View>
   );
 }
-
 
 const Stack = createStackNavigator();
 

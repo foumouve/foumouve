@@ -62,8 +62,8 @@ function getHeaderTitle(route) {
       return 'Accueil';
     case 'Exercice':
       return 'Exercices proposés';
-    case 'Conseil':
-      return 'Conseils';
+    case 'Advice':
+      return 'Conseils proposés';
     case 'Profile':
       return 'Votre profile';
   }

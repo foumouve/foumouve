@@ -1,35 +1,73 @@
-import { Ionicons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function AdviceScreen() {
+function AdviceScreen({ navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <OptionButton
-        icon="md-book"
-        label="Conseils"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+      <Button
+        title="Conseil sportif"
+        style={{marginBottom : 10}}
+        color="#27B8AF"
+        onPress={() => 
+          navigation.navigate('Sport')
+        }
+      />
+
+      <Image
+        style={{marginBottom:15}}
+        source={require('../assets/images/sport.png')}
+      />
+
+      <Button
+        title="Conseil nutritionnel"
+        style={{marginBottom : 10}}
+        color="#27B8AF"
+        onPress={() => 
+          navigation.navigate('Nutrition')
+        }
+      />
+
+      <Image
+        style={{marginBottom:15}}
+        source={require('../assets/images/nutrition.png')}
       />
     </ScrollView>
   );
 }
 
-function OptionButton({ icon, label, onPress}) {
+function SportAdviceScreen({ navigation }) {
+  return(
+    <View>
+      <Button title="Retour aux conseils" color="#27B8AF" onPress={() => navigation.navigate('Advice')} />
+      <Button title="Retour" color="#27B8AF" onPress={() => navigation.goBack()} />
+    </View>
+  )
+}
+
+function NutritionAdviceScreen({ navigation }) {
+  return(
+    <View>
+      <Button title="Retour aux conseils" color="#27B8AF" onPress={() => navigation.navigate('Advice')} />
+      <Button title="Retour" color="#27B8AF" onPress={() => navigation.goBack()} />
+    </View>
+  )
+}
+
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <RectButton style={[styles.option]} onPress={onPress}>
-      <View style={{ flexDirection: 'row' }}>
-        <View style={styles.optionIconContainer}>
-          <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
-        </View>
-        <View style={styles.optionTextContainer}>
-          <Text style={styles.optionText}>{label}</Text>
-        </View>
-      </View>
-    </RectButton>
+      <Stack.Navigator initialRouteName="Advice">
+        <Stack.Screen name="Advice" component={AdviceScreen} />
+        <Stack.Screen name="Sport" component={SportAdviceScreen} />
+        <Stack.Screen name="Nutrition" component={NutritionAdviceScreen} />
+      </Stack.Navigator>
   );
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
