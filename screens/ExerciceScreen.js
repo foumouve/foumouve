@@ -53,16 +53,16 @@ function ExerciceScreen({ navigation }) {
 } 
 
 function RunScreen({ navigation }) {
-  const [value, onChangeText] = React.useState('');
+  // const [value, onChangeText] = React.useState('');
   const [selectedValue, setSelectedValue] = useState("05");
   return (
-    <View style={{ flex: 0.43, alignItems: 'center', justifyContent:"space-between"}}>
+    <View style={{ flex: 0.37, alignItems: 'center', justifyContent:"space-between"}}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>La course à pied est un exercice qui se déroule sur le temps avec un chrono.</Text>
       <Text>Combien de temps voulez vous courir ?</Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 82, borderColor: 'black', borderWidth: 3}}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        style={{ height: 50, width: 82}}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
       >
           <Picker.Item label='05' value='300000'/>
           <Picker.Item label='10' value='600000'/>
@@ -87,7 +87,6 @@ function RunScreen({ navigation }) {
         value={value}
       /> */}
       <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
-      <Button title="Retour" onPress={() => navigation.goBack()} />
     </View>
   );
 }
@@ -95,13 +94,13 @@ function RunScreen({ navigation }) {
 function CyclingScreen({ navigation }) {
   const [selectedValue, setSelectedValue] = useState("05");
   return (
-    <View style={{ flex: 0.43, alignItems: 'center', justifyContent:"space-between" }}>
+    <View style={{ flex: 0.37, alignItems: 'center', justifyContent:"space-between" }}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Le vélo est un exercice qui se déroule avec un chrono.</Text>
       <Text style={{marginTop:15}}>Combien de temps voulez vous faire du vélo ? (en minutes)</Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        style={{ height: 50, width: 82 }}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
       >
           <Picker.Item label='01' value='60000'/>
           <Picker.Item label='02' value='120000'/>
@@ -120,7 +119,6 @@ function CyclingScreen({ navigation }) {
       </Picker>
       <Button title="Commencer" onPress={() => navigation.navigate('CyclingTimer')} />
       <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
-      <Button title="Retour" onPress={() => navigation.goBack()} />
     </View>
   );
 }
@@ -128,13 +126,13 @@ function CyclingScreen({ navigation }) {
 function GainageScreen({ navigation }) {
   const [selectedValue, setSelectedValue] = useState("1");
   return (
-    <View style={{ flex: 0.73, alignItems: 'center', justifyContent:"space-between" }}>
+    <View style={{ flex: 0.62, alignItems: 'center', justifyContent:"space-between" }}>
       <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Les exercics de gainages se passent en période, dans chaque période vous aurez 4 exercices différents.</Text>
-      <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center"}}>Combien de session voulez-vous faire ?</Text>
+      <Text>Combien de session voulez-vous faire ?</Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        style={{ height: 50, width: 82 }}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
       >
           <Picker.Item label='1' value='1'/>
           <Picker.Item label='2' value='2'/>
@@ -146,8 +144,8 @@ function GainageScreen({ navigation }) {
       <Text>Combien de temps par exercices ? (en secondes) </Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        style={{ height: 50, width: 82 }}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
       >
           <Picker.Item label='30' value='30000'/>
           <Picker.Item label='35' value='35000'/>
@@ -161,8 +159,8 @@ function GainageScreen({ navigation }) {
       <Text>Combien de temps de pause ? (en secondes) </Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 82, borderColor: 'gray', borderWidth: 1}}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        style={{ height: 50, width: 82 }}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
       >
           <Picker.Item label='10' value='10000'/>
           <Picker.Item label='15' value='15000'/>
@@ -173,7 +171,6 @@ function GainageScreen({ navigation }) {
       </Picker>
       <Button title="Commencer" onPress={() => navigation.navigate('GainageTimer')} />
       <Button title="Retour aux exercices" onPress={() => navigation.navigate('Exercice')} />
-      <Button title="Retour" onPress={() => navigation.goBack()} />
     </View>
   );
 }
