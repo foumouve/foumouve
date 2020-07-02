@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 
+/*
+  The advice page is composed of a section on nutritional advice and sports advice.
+*/
 function AdviceScreen({ navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -16,8 +19,8 @@ function AdviceScreen({ navigation }) {
       />
 
       <Image
-        style={{marginBottom:15}}
-        source={require('../assets/images/sport.png')}
+        style={styles.image}
+        source={require('../assets/images/conseil-sportif.jpg')}
       />
 
       <Button
@@ -30,8 +33,8 @@ function AdviceScreen({ navigation }) {
       />
 
       <Image
-        style={{marginBottom:15}}
-        source={require('../assets/images/nutrition.png')}
+        style={styles.image}
+        source={require('../assets/images/conseil-nutritionnel.jpg')}
       />
     </ScrollView>
   );
@@ -39,7 +42,7 @@ function AdviceScreen({ navigation }) {
 
 function SportAdviceScreen({ navigation }) {
   return(
-    <View>
+    <View style={{ flex: 1, alignItems: 'center' }}>
       <Button title="Retour aux conseils" color="#27B8AF" onPress={() => navigation.navigate('Advice')} />
       <Button title="Retour" color="#27B8AF" onPress={() => navigation.goBack()} />
     </View>
@@ -48,7 +51,7 @@ function SportAdviceScreen({ navigation }) {
 
 function NutritionAdviceScreen({ navigation }) {
   return(
-    <View>
+    <View style={{ flex: 1, alignItems: 'center' }}>
       <Button title="Retour aux conseils" color="#27B8AF" onPress={() => navigation.navigate('Advice')} />
       <Button title="Retour" color="#27B8AF" onPress={() => navigation.goBack()} />
     </View>
@@ -59,17 +62,23 @@ const Stack = createStackNavigator();
 
 function App() {
   return (
-      <Stack.Navigator initialRouteName="Advice">
-        <Stack.Screen name="Advice" component={AdviceScreen} />
-        <Stack.Screen name="Sport" component={SportAdviceScreen} />
-        <Stack.Screen name="Nutrition" component={NutritionAdviceScreen} />
-      </Stack.Navigator>
+    <Stack.Navigator initialRouteName="Advice">
+      <Stack.Screen name="Advice" component={AdviceScreen} />
+      <Stack.Screen name="Sport" component={SportAdviceScreen} />
+      <Stack.Screen name="Nutrition" component={NutritionAdviceScreen} />
+    </Stack.Navigator>
   );
 }
 
 export default App;
 
 const styles = StyleSheet.create({
+  //Resize images on the page
+  image:{
+    marginBottom:15, 
+    height:200, 
+    width:-100
+  },
   container: {
     flex: 1,
     backgroundColor: '#fafafa',
