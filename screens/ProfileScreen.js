@@ -2,6 +2,9 @@ import * as React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 
+/*
+  The profile page is composed of the user's information
+*/
 export default function ProfileScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>

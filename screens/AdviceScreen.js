@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 
+/*
+  The advice page is composed of a section on nutritional advice and sports advice.
+*/
 function AdviceScreen({ navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -70,6 +73,7 @@ function App() {
 export default App;
 
 const styles = StyleSheet.create({
+  //Resize images on the page
   image:{
     marginBottom:15, 
     height:200, 

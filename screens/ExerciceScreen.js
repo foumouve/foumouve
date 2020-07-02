@@ -4,10 +4,14 @@ import { StyleSheet, Text, View, Button, Image, Picker, Alert } from 'react-nati
 import { ScrollView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 
+/*
+  The exercise page is composed of the different exercises proposed by the application.
+*/
 function ExerciceScreen({ navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={{alignItems:"center"}}></View>
+      {/* See the walking course exercises */}
       <Button
         title="Course à pied"
         style={{marginBottom : 10}}
@@ -16,12 +20,12 @@ function ExerciceScreen({ navigation }) {
           navigation.navigate('Run')
         }
       />
-
+      {/* Call an image */}
       <Image
         style={styles.image}
         source={require('../assets/images/course-a-pied.jpg')}
       />
-
+      {/* See the cycling exercises */}
       <Button
         title="Vélo"
         color="#27B8AF"
@@ -29,12 +33,12 @@ function ExerciceScreen({ navigation }) {
           navigation.navigate('Cycling')
         }
       />
-
+      {/* Call an image */}
       <Image
         style={styles.image}
         source={require('../assets/images/cycliste-1.jpg')}
       />
-
+      {/* See the exercises at home */}
       <Button
         title="Gainage"
         color="#27B8AF"
@@ -42,7 +46,7 @@ function ExerciceScreen({ navigation }) {
           navigation.navigate('Gainage')
         }
       />
-      
+      {/* Call an image */}
       <Image
           style={styles.image}
           source={require('../assets/images/gainage.jpg')}
@@ -95,7 +99,7 @@ function CyclingScreen({ navigation }) {
   const [selectedValue, setSelectedValue] = useState("05");
   return (
     <View style={{ flex: 0.37, alignItems: 'center', justifyContent:"space-between" }}>
-      <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Le vélo est un exercice qui se déroule avec un chrono.</Text>
+      <Text style={{marginTop:15, marginRight:5, marginLeft:5, textAlign:"center", fontWeight:"bold"}}>Le vélo est un exercice qui se déroule avec un chronomètre.</Text>
       <Text style={{marginTop:15}}>Combien de temps voulez vous faire du vélo ? (en minutes)</Text>
       <Picker
         selectedValue={selectedValue}
@@ -234,6 +238,7 @@ export default App;
 
 
 const styles = StyleSheet.create({
+  //Resize images on the page
   image:{
     marginBottom:15, 
     height:200, 

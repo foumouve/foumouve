@@ -2,10 +2,14 @@ import * as React from 'react';
 import { Platform, StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
+/*
+  The login page consists of a text field for the username, 
+  a text field for the password and a button to send the information.
+*/
 export default function LoginScreen() {
   const [value, onChangeText] = React.useState('');
   return (
-    <View style={styles.container}>
+    <View style={styles.container}> {/* Create the main layout */}
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={{borderColor: 'gray', borderWidth: 1, padding:5, margin:2}}>
           <View style={{flexDirection:"row", alignItems:"center"}}>

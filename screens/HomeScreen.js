@@ -2,23 +2,24 @@ import * as React from 'react';
 import { Platform, StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
+/*
+  The home page is composed of a text field, 
+  a button to send messages and chat.
+*/
 export default function HomeScreen() {
   const [value, onChangeText] = React.useState('');
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={{flexDirection:"row", alignItems:"center"}}>
+          <View style={{ flexDirection:"row", alignItems:"center" }}>
             <TextInput
-              style={{borderColor: 'gray', borderWidth: 1, paddingVertical:5, paddingHorizontal:125, margin:15 }}
+              style={{ borderColor: 'gray', borderWidth: 1, paddingVertical:5, paddingHorizontal:125, margin:15 }}
               onChangeText={text => onChangeText(text)}
               value={value}
             />
             <Button title="Envoyer" color="#27B8AF" />
           </View>
         </ScrollView>
-  
-        <View style={styles.tabBarInfoContainer}>
-        </View>
       </View>
     );
 }
@@ -28,12 +29,6 @@ HomeScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
-  // button:{
-  //   backgroundColor: "#27B8AF",
-  //   paddingVertical: 12,
-  //   paddingHorizontal: 25
-  // },
-  
   baseText: {
     fontWeight: 'bold'
   },
